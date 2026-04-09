@@ -11,8 +11,8 @@ const superheroSchema = new mongoose.Schema({
     poderes: [String], //lista de texto
     aliados: [String], //array de nombres
     enemigos: [String], //también array de nombres
-    creador: String, //autor del personaje
-    createdAt: { type: Date, default: Date.now} //fecha de cración
+    creator: String, //autor del personaje
+    createdAt: { type: Date, default: Date.now } //fecha de cración
 });
 
 // Esto convierte el schema en un Modelo, que es la interfaz para los métodos CRUD

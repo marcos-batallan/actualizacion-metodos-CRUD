@@ -1,4 +1,4 @@
-import mongoose from "mongoose"; // Se importa este ODM para usar MongoDB con objetos y clases de JavaScript.
+import mongoose from "mongoose"; // Se importa este ODM (Object Data Modeling) para usar MongoDB con objetos y clases de JavaScript.
 import dns from "node:dns/promises"; // Se mporta el módulo DNS nativo de Node.js
 
 dns.setServers(["1.1.1.1", "8.8.8.8"]); // Se usan estos servidores DNS públicos para resolver dominios

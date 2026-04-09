@@ -24,10 +24,34 @@ class SuperHeroRepository extends IRepository {
     async obtenerTodos () {
         return await SuperHero.find({});
     }
+
+/***** A PARTIR DE AQUÍ SE AGREGAN LOS METODOS POST, PUT Y DELETE
+SOLICITADOS PARA EL TP1 DEL SPRINT 3 *****/
+
+    async crear (datos) {
+        const nuevo = new SuperHero (datos); // Se crea una nueva instancia
+        return await nuevo.save(); // Se guarda el nuevo objeto en la DB
+    }
+
+    async actualizar (id, datos) {
+        return await SuperHero.findOneAndReplace({ _id: id }, datos, { returnDocument: 'after' });
+    }
+
+    async actualizarParcial (id, datos) {
+        return await SuperHero.findByIdAndUpdate( id, datos, { returnDocument: 'after' });
+    }
+
+    async eliminarPorNombre (nombre) {
+        return await SuperHero.findOneAndDelete({ nombreSuperHeroe: nombre });
+    }
+
+    async eliminarPorId(id) {
+    return await SuperHero.findByIdAndDelete(id);
+    }
 }
 
 //Devuelve los datos de la DB
-export default new SuperHeroRepository(); 
+export default new SuperHeroRepository();
 
 
 /*****
